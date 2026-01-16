@@ -70,7 +70,7 @@ parameters [here](https://github.com/bitnami/charts/tree/master/bitnami/kafka/#i
    Username is `user1`, obtain password using the following:
 
    ```shell
-   export KAFKA_PASSWORD=$(kubectl get secret kafka-dev-user-passwords -oyaml | yq '.data.client-passwords | @base64d')
+   export KAFKA_PASSWORD=$(kubectl get secret kafka-dev-user-passwords -n kafka-cluster -oyaml | yq '.data.client-passwords | @base64d')
    ```
 
    Create the Kubernetes secret to be used by the `ProviderConfig` with:
